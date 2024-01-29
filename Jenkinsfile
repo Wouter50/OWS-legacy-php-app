@@ -1,3 +1,4 @@
+pipeline{
 agent { label '!windows' }
 stages {
     stage('SonarQube') {
@@ -8,4 +9,5 @@ stages {
             }
         }
     }
+}
 }
