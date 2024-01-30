@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,7 @@
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once('header.php'); ?>
+    <?php include_once 'header.php'; ?>
         <h1>Contactez nous</h1>
         <form action="submit_contact.php" method="POST">
             <div class="mb-3">
@@ -31,6 +31,6 @@
         <br />
     </div>
 
-    <?php include_once('footer.php'); ?>
+    <?php include_once 'footer.php'; ?>
 </body>
 </html>

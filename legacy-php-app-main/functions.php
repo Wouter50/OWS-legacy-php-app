@@ -1,6 +1,6 @@
 <?php
 
-function display_recipe(array $recipe): string
+function displayRecipe(array $recipe): string
 {
     $recipe_content = '';
 
@@ -15,7 +15,7 @@ function display_recipe(array $recipe): string
     return $recipe_content;
 }
 
-function display_author(string $authorEmail, array $users): string
+function displayAuthor(string $authorEmail, array $users): string
 {
     for ($i = 0; $i < count($users); $i++) {
         $author = $users[$i];
@@ -27,7 +27,7 @@ function display_author(string $authorEmail, array $users): string
     return 'Non trouvé.';
 }
 
-function display_user(int $userId, array $users): string
+function displayUser(int $userId, array $users): string
 {
     for ($i = 0; $i < count($users); $i++) {
         $user = $users[$i];
@@ -39,7 +39,7 @@ function display_user(int $userId, array $users): string
     return 'Non trouvé.';
 }
 
-function retrieve_id_from_user_mail(string $userEmail, array $users): int
+function retrieveIdFromUserMail(string $userEmail, array $users): int
 {
     for ($i = 0; $i < count($users); $i++) {
         $user = $users[$i];
@@ -51,7 +51,7 @@ function retrieve_id_from_user_mail(string $userEmail, array $users): int
     return 0;
 }
 
-function get_recipes(array $recipes, int $limit): array
+function getRecipes(array $recipes, int $limit): array
 {
     $valid_recipes = [];
     $counter = 0;

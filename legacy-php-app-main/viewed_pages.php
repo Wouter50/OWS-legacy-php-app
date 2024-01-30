@@ -9,4 +9,4 @@ fputs($monfichier, $pages_vues); // On écrit le nouveau nombre de pages vues
 
 fclose($monfichier);
 
-echo('<p class="d-flex justify-content-center">Cette page a été vue ' . $pages_vues . ' fois !</p>');
+echo '<p class="d-flex justify-content-center">Cette page a été vue ' . $pages_vues . ' fois !</p>';

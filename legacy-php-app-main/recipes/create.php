@@ -1,10 +1,10 @@
 <?php session_start();
-    include_once('./../config/mysql.php');
-    include_once('./../config/user.php');
-    include_once('./../variables.php');
+    include_once './../config/mysql.php';
+    include_once './../config/user.php';
+    include_once './../variables.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,9 +18,9 @@
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once($rootPath.'/header.php'); ?>
+    <?php include_once $rootPath.'/header.php'; ?>
         <h1>Ajouter une recette</h1>
-        <form action="<?php echo($rootUrl . 'recipes/post_create.php'); ?>" method="POST">
+        <form action="<?php echo $rootUrl . 'recipes/post_create.php'; ?>" method="POST">
             <div class="mb-3">
                 <label for="title" class="form-label">Titre de la recette</label>
                 <input type="text" class="form-control" id="title" name="title" aria-describedby="title-help">
@@ -28,13 +28,14 @@
             </div>
             <div class="mb-3">
                 <label for="recipe" class="form-label">Description de la recette</label>
-                <textarea class="form-control" placeholder="Seulement du contenu vous appartenant ou libre de droits." id="recipe" name="recipe"></textarea>
+                <textarea class="form-control" placeholder="Seulement du contenu vous appartenant ou libre de droits." 
+                id="recipe" name="recipe"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
         <br />
     </div>
 
-    <?php include_once($rootPath.'/footer.php'); ?>
+    <?php include_once $rootPath.'/footer.php' ; ?>
 </body>
 </html>

@@ -2,14 +2,14 @@
 
 session_start();
 
-include_once('./../config/mysql.php');
-include_once('./../config/user.php');
-include_once('./../variables.php');
+include_once './../config/mysql.php';
+include_once './../config/user.php';
+include_once './../variables.php';
 
 $postData = $_POST;
 
 if (!isset($postData['id'])) {
-    echo('Il faut un identifiant valide pour supprimer une recette.');
+    echo 'Il faut un identifiant valide pour supprimer une recette.';
     return;
 }
 

@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-include_once('./../config/mysql.php');
-include_once('./../config/user.php');
-include_once('./../variables.php');
-include_once('./../functions.php');
+include_once './../config/mysql.php';
+include_once './../config/user.php';
+include_once './../variables.php';
+include_once './../functions.php';
 
 $postData = $_POST;
 
@@ -15,12 +15,12 @@ if (
     !is_numeric($postData['review']) &&
     !is_numeric($postData['recipe_id'])
     ) {
-    echo('Le commentaire est invalide.');
+    echo 'Le commentaire est invalide.';
     return;
 }
 
 if (!isset($loggedUser)) {
-    echo('Vous devez être authentifié pour soumettre un commentaire');
+    echo 'Vous devez être authentifié pour soumettre un commentaire';
     return;
 }
 
@@ -28,7 +28,8 @@ $comment = $postData['comment'];
 $recipeId = $postData['recipe_id'];
 $review = $postData['review'];
 
-$insertRecipe = $mysqlClient->prepare('INSERT INTO comments(comment, recipe_id, user_id, review) VALUES (:comment, :recipe_id, :user_id, :review)');
+$insertRecipe = $mysqlClient->prepare('INSERT INTO comments(comment, recipe_id, user_id, review)
+VALUES (:comment, :recipe_id, :user_id, :review)');
 $insertRecipe->execute([
     'comment' => $comment,
     'recipe_id' => $recipeId,
@@ -39,7 +40,7 @@ $insertRecipe->execute([
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="EN">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,17 +54,17 @@ $insertRecipe->execute([
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once($rootPath.'/header.php'); ?>
+    <?php include_once $rootPath.'/header.php' ; ?>
         <h1>Commentaire ajouté avec succès !</h1>
         
         <div class="card">
             
             <div class="card-body">
-                <p class="card-text"><b>Note</b> : <?php echo($review); ?> / 5</p>
+                <p class="card-text"><b>Note</b> : <?php echo $review; ?> / 5</p>
                 <p class="card-text"><b>Votre commentaire</b> : <?php echo strip_tags($comment); ?></p>
             </div>
         </div>
     </div>
-    <?php include_once($rootPath.'/footer.php'); ?>
+    <?php include_once $rootPath.'/footer.php' ; ?>
 </body>
 </html>
