@@ -18,7 +18,7 @@ if (
 $title = $postData['title'];
 $recipe = $postData['recipe'];
 
-$insertRecipe = $mysqlClient->prepare('INSERT INTO recipes(title, recipe, author, is_enabled) 
+$insertRecipe = $mysqlClient->prepare('INSERT INTO recipes(title, recipe, author, is_enabled)
 VALUES (:title, :recipe, :author, :is_enabled)');
 $insertRecipe->execute([
     'title' => $title,
