@@ -1,7 +1,7 @@
 <?php
-    include_once './../config/mysql.php';
-    include_once './../config/user.php';
-    include_once './../variables.php';
+    use config\mysql;
+    use config\user;
+    use variables;
 ?>
 
 <form action="<?php echo $rootUrl . 'comments/post_create.php' ; ?>" method="POST">

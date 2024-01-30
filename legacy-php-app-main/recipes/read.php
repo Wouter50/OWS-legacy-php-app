@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-include_once './../config/mysql.php';
-include_once './../config/user.php';
-include_once './../variables.php';
+use config\mysql;
+use config\user;
+use variables;
 
 $getData = $_GET;
 if (!isset($getData['id']) && is_numeric($getData['id'])) {
@@ -13,7 +13,8 @@ if (!isset($getData['id']) && is_numeric($getData['id'])) {
 
 $recipeId = $getData['id'];
 
-$retrieveRecipeWithCommentsStatement = $mysqlClient->prepare('SELECT *, DATE_FORMAT(c.created_at, "%d/%m/%Y") as comment_date 
+$retrieveRecipeWithCommentsStatement = $mysqlClient->prepare('SELECT *, DATE_FORMAT(c.created_at, "%d/%m/%Y")
+as comment_date
 FROM recipes r LEFT JOIN comments c on r.recipe_id = c.recipe_id WHERE r.recipe_id = :id');
 $retrieveRecipeWithCommentsStatement->execute([
     'id' => $recipeId,
@@ -21,7 +22,7 @@ $retrieveRecipeWithCommentsStatement->execute([
 
 $recipeWithComments = $retrieveRecipeWithCommentsStatement->fetchAll(PDO::FETCH_ASSOC);
 
-$averageRatingStatment = $mysqlClient->prepare('SELECT ROUND(AVG(c.review),1) as rating 
+$averageRatingStatment = $mysqlClient->prepare('SELECT ROUND(AVG(c.review),1) as rating
 FROM recipes r LEFT JOIN comments c on r.recipe_id = c.recipe_id WHERE r.recipe_id = :id');
 $averageRatingStatment->execute([
     'id' => $recipeId,
@@ -51,21 +52,21 @@ foreach ($recipeWithComments as $comment) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de Recettes - <?php echo $recipe['title']; ?></title>
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once $rootPath.'/header.php'; ?>
+    <?php use header; ?>
         <h1><?php echo $recipe['title']; ?></h1>
         <div class="row">
             <article class="col">
@@ -92,9 +93,9 @@ foreach ($recipeWithComments as $comment) {
         <?php endif; ?>
         <hr />
         <?php if (isset($loggedUser)) : ?>
-            <?php include_once $rootPath.'/comments/create.php'; ?>
+            <?php comments\create; ?>
         <?php endif; ?>
     </div>
-    <?php include_once $rootPath.'/footer.php'; ?>
+    <?php use footer; ?>
 </body>
 </html>

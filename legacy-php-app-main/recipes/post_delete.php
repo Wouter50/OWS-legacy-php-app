@@ -2,9 +2,9 @@
 
 session_start();
 
-include_once './../config/mysql.php';
-include_once './../config/user.php';
-include_once './../variables.php';
+use config\mysql;
+use config\user;
+use variables;
 
 $postData = $_POST;
 

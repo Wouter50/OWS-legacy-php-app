@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de Recettes - Page d'accueil</title>
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once 'header.php'; ?>
+    <?php use header; ?>
         <h1>Contactez nous</h1>
         <form action="submit_contact.php" method="POST">
             <div class="mb-3">
@@ -31,6 +31,6 @@
         <br />
     </div>
 
-    <?php include_once 'footer.php'; ?>
+    <?php use footer; ?>
 </body>
 </html>

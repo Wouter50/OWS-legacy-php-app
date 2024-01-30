@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-include_once './../config/mysql.php';
-include_once './../config/user.php';
-include_once './../variables.php';
+use config\mysql;
+use config\user;
+use variables;
 
 $postData = $_POST;
 
@@ -20,7 +20,7 @@ $id = $postData['id'];
 $title = $postData['title'];
 $recipe = $postData['recipe'];
 
-$insertRecipeStatement = $mysqlClient->prepare('UPDATE recipes SET title = :title, recipe = :recipe 
+$insertRecipeStatement = $mysqlClient->prepare('UPDATE recipes SET title = :title, recipe = :recipe
 WHERE recipe_id = :id');
 $insertRecipeStatement->execute([
     'title' => $title,
@@ -38,14 +38,14 @@ $insertRecipeStatement->execute([
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de Recettes - Création de recette</title>
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once $rootPath.'/header.php'; ?>
+    <?php use header; ?>
         <h1>Recette modifiée avec succès !</h1>
         
         <div class="card">
@@ -57,6 +57,6 @@ $insertRecipeStatement->execute([
             </div>
         </div>
     </div>
-    <?php include_once $rootPath.'/footer.php'; ?>
+    <?php use footer; ?>
 </body>
 </html>

@@ -53,7 +53,7 @@ if (isset($_COOKIE['LOGGED_USER']) || isset($_SESSION['LOGGED_USER'])) {
     <?php endif; ?>
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" name="email" 
+        <input type="email" class="form-control" id="email" name="email"
         aria-describedby="email-help" placeholder="you@exemple.com">
         <div id="email-help" class="form-text">L'email utilisé lors de la création de compte.</div>
     </div>

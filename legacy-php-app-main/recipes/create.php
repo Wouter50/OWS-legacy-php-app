@@ -1,7 +1,7 @@
 <?php session_start();
-    include_once './../config/mysql.php';
-    include_once './../config/user.php';
-    include_once './../variables.php';
+    use config\mysql;
+    use config\user;
+    use variables;
 ?>
 <!DOCTYPE html>
 <html lang=en>
@@ -18,7 +18,7 @@
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
 
-    <?php include_once $rootPath.'/header.php'; ?>
+    <?php use header; ?>
         <h1>Ajouter une recette</h1>
         <form action="<?php echo $rootUrl . 'recipes/post_create.php'; ?>" method="POST">
             <div class="mb-3">
@@ -28,7 +28,7 @@
             </div>
             <div class="mb-3">
                 <label for="recipe" class="form-label">Description de la recette</label>
-                <textarea class="form-control" placeholder="Seulement du contenu vous appartenant ou libre de droits." 
+                <textarea class="form-control" placeholder="Seulement du contenu vous appartenant ou libre de droits."
                 id="recipe" name="recipe"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
@@ -36,6 +36,6 @@
         <br />
     </div>
 
-    <?php include_once $rootPath.'/footer.php' ; ?>
+    <?php use footer; ?>
 </body>
 </html>

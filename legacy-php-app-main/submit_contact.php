@@ -21,14 +21,14 @@ $message = $postData['message'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de Recettes - Page d'accueil</title>
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 </head>
 <body>
     <div class="container">
 
-    <?php include_once $rootPath.'/header.php'; ?>
+    <?php use header; ?>
         <h1>Message bien reçu !</h1>
         
         <div class="card">
@@ -40,6 +40,6 @@ $message = $postData['message'];
             </div>
         </div>
     </div>
-    <?php include_once $rootPath.'/footer.php'; ?>
+    <?php use footer; ?>
 </body>
 </html>
